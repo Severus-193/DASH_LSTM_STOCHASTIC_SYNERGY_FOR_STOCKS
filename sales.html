@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yahoo Finance Data</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ff6666; /* red */
+      color: white;
+    }
+
+    td {
+      background-color: #ffd700; /* gold */
+    }
+
+    canvas {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Yahoo Finance Data</h2>
+
+    <table id="yahooFinanceTable">
+      <thead>
+        <tr>
+          <th>Serial Number</th>
+          <th>Symbol</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody id="yahooFinanceList">
+        <!-- Placeholder data will be displayed here -->
+      </tbody>
+    </table>
+
+    <canvas id="priceChart"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const yahooFinanceData = [
+      { symbol: "AAPL", price: 150.00 },
+      { symbol: "GOOGL", price: 250.00 },
+      { symbol: "MSFT", price: 300.00 },
+      { symbol: "FB", price: 340.00 },
+      { symbol: "AMZN", price: 500.00 },
+      { symbol: "TSLA", price: 450.00 },
+      { symbol: "NFLX", price: 300.00 },
+      { symbol: "TWTR", price: 200.00 },
+      { symbol: "SNAP", price: 250.00 },
+      { symbol: "PINS", price: 200.00 },
+      { symbol: "DIS", price: 350.00 },
+      { symbol: "SPOT", price: 400.00 },
+      { symbol: "CRM", price: 300.00 },
+      { symbol: "IBM", price: 200.00 },
+      { symbol: "HPQ", price: 150.00 },
+      { symbol: "INTC", price: 180.00 },
+      { symbol: "AMD", price: 250.00 },
+      { symbol: "TSM", price: 220.00 },
+      { symbol: "NVDA", price: 400.00 },
+      { symbol: "BABA", price: 350.00 },
+      { symbol: "SAMSUNG", price: 280.00 },  // Added Samsung
+      { symbol: "INTU", price: 280.00 },     // Additional tech companies
+      { symbol: "ADBE", price: 400.00 },
+      { symbol: "CSCO", price: 150.00 },
+      { symbol: "ORCL", price: 180.00 },
+      { symbol: "TXN", price: 220.00 },
+      { symbol: "QCOM", price: 160.00 },
+      { symbol: "UBER", price: 50.00 },
+      { symbol: "PYPL", price: 280.00 },
+      { symbol: "SQ", price: 220.00 },
+      { symbol: "ZM", price: 300.00 },
+      { symbol: "NOW", price: 450.00 },
+      { symbol: "CRM", price: 320.00 },
+      { symbol: "LRCX", price: 380.00 },
+    ];
+
+    function displayYahooFinanceData(data) {
+      // Sort data in descending order based on price
+      const sortedData = data.sort((a, b) => b.price - a.price);
+
+      const yahooFinanceTable = document.getElementById('yahooFinanceTable');
+      const yahooFinanceList = document.getElementById('yahooFinanceList');
+      yahooFinanceList.innerHTML = '';
+
+      // Iterate through sorted data and dynamically create table rows to display the information
+      sortedData.forEach((entry, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${index + 1}</td><td>${entry.symbol}</td><td>$${clamp(entry.price, 150, 500).toFixed(2)}</td>`;
+        yahooFinanceList.appendChild(row);
+      });
+
+      // Update chart data
+      updateChart(sortedData);
+    }
+
+    function updateChart(data) {
+      const chartData = {
+        labels: data.map(entry => entry.symbol),
+        datasets: [{
+          label: 'Stock Prices',
+          backgroundColor: '#ff6666', // red
+          borderColor: '#ffd700', // gold
+          borderWidth: 1,
+          data: data.map(entry => clamp(entry.price, 150, 500)),
+        }],
+      };
+
+      const ctx = document.getElementById('priceChart').getContext('2d');
+      const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+      });
+    }
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    // Initial display on page load
+    displayYahooFinanceData(yahooFinanceData);
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yahoo Finance Data</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ff6666; /* red */
+      color: white;
+    }
+
+    td {
+      background-color: #ffd700; /* gold */
+    }
+
+    canvas {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Yahoo Finance Data</h2>
+
+    <table id="yahooFinanceTable">
+      <thead>
+        <tr>
+          <th>Serial Number</th>
+          <th>Symbol</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody id="yahooFinanceList">
+        <!-- Placeholder data will be displayed here -->
+      </tbody>
+    </table>
+
+    <canvas id="priceChart"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const yahooFinanceData = [
+      { symbol: "AAPL", price: 150.00 },
+      { symbol: "GOOGL", price: 250.00 },
+      { symbol: "MSFT", price: 300.00 },
+      { symbol: "FB", price: 340.00 },
+      { symbol: "AMZN", price: 500.00 },
+      { symbol: "TSLA", price: 450.00 },
+      { symbol: "NFLX", price: 300.00 },
+      { symbol: "TWTR", price: 200.00 },
+      { symbol: "SNAP", price: 250.00 },
+      { symbol: "PINS", price: 200.00 },
+      { symbol: "DIS", price: 350.00 },
+      { symbol: "SPOT", price: 400.00 },
+      { symbol: "CRM", price: 300.00 },
+      { symbol: "IBM", price: 200.00 },
+      { symbol: "HPQ", price: 150.00 },
+      { symbol: "INTC", price: 180.00 },
+      { symbol: "AMD", price: 250.00 },
+      { symbol: "TSM", price: 220.00 },
+      { symbol: "NVDA", price: 400.00 },
+      { symbol: "BABA", price: 350.00 },
+      { symbol: "SAMSUNG", price: 280.00 },  // Added Samsung
+      { symbol: "INTU", price: 280.00 },     // Additional tech companies
+      { symbol: "ADBE", price: 400.00 },
+      { symbol: "CSCO", price: 150.00 },
+      { symbol: "ORCL", price: 180.00 },
+      { symbol: "TXN", price: 220.00 },
+      { symbol: "QCOM", price: 160.00 },
+      { symbol: "UBER", price: 50.00 },
+      { symbol: "PYPL", price: 280.00 },
+      { symbol: "SQ", price: 220.00 },
+      { symbol: "ZM", price: 300.00 },
+      { symbol: "NOW", price: 450.00 },
+      { symbol: "CRM", price: 320.00 },
+      { symbol: "LRCX", price: 380.00 },
+    ];
+
+    function displayYahooFinanceData(data) {
+      // Sort data in descending order based on price
+      const sortedData = data.sort((a, b) => b.price - a.price);
+
+      const yahooFinanceTable = document.getElementById('yahooFinanceTable');
+      const yahooFinanceList = document.getElementById('yahooFinanceList');
+      yahooFinanceList.innerHTML = '';
+
+      // Iterate through sorted data and dynamically create table rows to display the information
+      sortedData.forEach((entry, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${index + 1}</td><td>${entry.symbol}</td><td>$${clamp(entry.price, 150, 500).toFixed(2)}</td>`;
+        yahooFinanceList.appendChild(row);
+      });
+
+      // Update chart data
+      updateChart(sortedData);
+    }
+
+    function updateChart(data) {
+      const chartData = {
+        labels: data.map(entry => entry.symbol),
+        datasets: [{
+          label: 'Stock Prices',
+          backgroundColor: '#ff6666', // red
+          borderColor: '#ffd700', // gold
+          borderWidth: 1,
+          data: data.map(entry => clamp(entry.price, 150, 500)),
+        }],
+      };
+
+      const ctx = document.getElementById('priceChart').getContext('2d');
+      const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+      });
+    }
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    // Initial display on page load
+    displayYahooFinanceData(yahooFinanceData);
+  </script>
+</body>
+</html>

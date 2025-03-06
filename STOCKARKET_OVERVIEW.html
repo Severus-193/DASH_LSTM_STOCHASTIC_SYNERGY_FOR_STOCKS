@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFC0CB; /* Light gray background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        #stockSymbol {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 1.2em;
+            background-color: #4CAF50; /* Green button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #FF0000; /* Darker green on hover */
+        }
+
+        #result {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+    <script>
+        async function fetchStockInfo() {
+            const apiKey = 'your_api_key';
+            const symbolInput = document.getElementById('stockSymbol');
+            const symbol = symbolInput.value.toUpperCase();
+
+            if (!symbol) {
+                alert('Please enter a stock symbol.');
+                return;
+            }
+
+            const overviewUrl = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=${apiKey}`;
+            const dailyUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`;
+
+            try {
+                const overviewResponse = await fetch(overviewUrl);
+                const overviewData = await overviewResponse.json();
+
+                const dailyResponse = await fetch(dailyUrl);
+                const dailyData = await dailyResponse.json();
+
+                if (overviewData['Symbol'] && dailyData['Time Series (Daily)']) {
+                    const latestDate = Object.keys(dailyData['Time Series (Daily)'])[0];
+                    const latestData = dailyData['Time Series (Daily)'][latestDate];
+
+                    const openPrice = latestData['1. open'];
+                    const closePrice = latestData['4. close'];
+                    const highValue = latestData['2. high'];
+                    const lowValue = latestData['3. low'];
+
+                    const marketCap = overviewData['MarketCapitalization'];
+                    const peRatio = overviewData['PERatio'];
+                    const divYield = overviewData['DividendYield'];
+
+                    const divYieldPercentage = divYield ? (divYield * 100).toFixed(2) + '%' : 'N/A';
+
+                    document.getElementById('result').innerHTML = `
+                        <strong>${symbol} Daily Price and Overview Information (Latest Available Trading Day):</strong><br>
+                        Open Price: $${openPrice}<br>
+                        Close Price: $${closePrice}<br>
+                        High Value: $${highValue}<br>
+                        Low Value: $${lowValue}<br>
+                        Market Cap: $${marketCap}<br>
+                        P/E Ratio: ${peRatio}<br>
+                        Dividend Yield: ${divYieldPercentage}
+                    `;
+                } else {
+                    document.getElementById('result').innerHTML = 'Unable to fetch stock information. Please check the symbol and try again.';
+                }
+            } catch (error) {
+                console.error('Error fetching stock data:', error);
+                document.getElementById('result').innerHTML = 'Error fetching stock data. Please try again later.';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>STOCK INFORMATION</h1>
+    <label for="stockSymbol">Enter Stock Symbol:</label>
+    <input type="text" id="stockSymbol" placeholder="e.g., AAPL">
+    <button onclick="fetchStockInfo()">Get Stock Information</button>
+    <p id="result"></p>
+</body>
+</html>

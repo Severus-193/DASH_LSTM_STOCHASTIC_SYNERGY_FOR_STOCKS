@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Fashion Stocks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:skyblue;
+        }
+
+        header {
+            background-color:mistyrose;
+            color: palevioletred;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        canvas {
+            margin: 20px auto;
+            display: block;
+            max-width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Virtual Fashion Stocks</h1>
+        <canvas id="stocksChart"></canvas>
+    </header>
+
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Stock Symbol</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Farfetch Limited</td>
+            <td>FTCH</td>
+            <td>Online luxury fashion retail platform.</td>
+        </tr>
+        <tr>
+            <td>Tapestry, Inc.</td>
+            <td>TPR</td>
+            <td>Multinational luxury fashion holding company.</td>
+        </tr>
+        <tr>
+            <td>The RealReal, Inc.</td>
+            <td>REAL</td>
+            <td>Online marketplace for authenticated, consigned luxury goods.</td>
+        </tr>
+        <tr>
+            <td>Alibaba Group Holding Limited</td>
+            <td>BABA</td>
+            <td>Chinese multinational conglomerate with a significant presence in e-commerce.</td>
+        </tr>
+        <tr>
+            <td>ASOS plc</td>
+            <td>ASC.L</td>
+            <td>British online fashion and cosmetic retailer.</td>
+        </tr>
+        <tr>
+            <td>Zalando SE</td>
+            <td>ZAL.DE</td>
+            <td>European e-commerce company focusing on fashion and lifestyle products.</td>
+        </tr>
+        <tr>
+            <td>LVMH Moët Hennessy Louis Vuitton SE</td>
+            <td>LVMH.PA</td>
+            <td>Multinational luxury goods conglomerate.</td>
+        </tr>
+        <tr>
+            <td>Etsy, Inc.</td>
+            <td>ETSY</td>
+            <td>E-commerce platform specializing in handmade, vintage, and unique items.</td>
+        </tr>
+        <tr>
+            <td>Nike, Inc.</td>
+            <td>NKE</td>
+            <td>Multinational corporation known for athletic footwear, apparel, and sports equipment.</td>
+        </tr>
+        <tr>
+            <td>Stitch Fix, Inc.</td>
+            <td>SFIX</td>
+            <td>Online personal styling service using data science and human stylists.</td>
+        </tr>
+    </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Sample data for the chart
+        var companies = ["Farfetch", "Tapestry", "RealReal", "Alibaba", "ASOS", "Zalando", "LVMH", "Etsy", "Nike", "Stitch Fix"];
+        var stockPrices = [345, 320, 465, 210, 480, 295, 550, 150, 170, 285]; // Replace with real stock prices
+
+        // Chart configuration
+        var ctx = document.getElementById('stocksChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: companies,
+                datasets: [{
+                    label: 'Stock Prices (USD)',
+                    data: stockPrices,
+                    backgroundColor: 'indigo',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

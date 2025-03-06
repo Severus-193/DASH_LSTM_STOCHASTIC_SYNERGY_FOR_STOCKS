@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Government Mints</title>
+<!-- Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: beige;
+    margin: 0;
+    padding: 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: gold;
+    border: 2px solid tan;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid tan;
+  }
+  th {
+    background-color: tan;
+    color: white;
+  }
+  tr:nth-child(even) {
+    background-color: beige;
+  }
+  tr:hover {
+    background-color: lightgoldenrodyellow;
+  }
+</style>
+</head>
+<body>
+<h2>Top Government Mints</h2>
+<canvas id="mintChart" width="400" height="200"></canvas>
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Mint</th>
+      <th>Location</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>United States Mint (US Mint)</td>
+      <td>Philadelphia, Denver, San Francisco, and West Point</td>
+      <td>Produces coins for circulation and collector's items</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Royal Mint (United Kingdom)</td>
+      <td>Wales</td>
+      <td>Produces coins for the United Kingdom and other countries</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Royal Canadian Mint (RCM)</td>
+      <td>Ottawa, Ontario</td>
+      <td>Produces coins for Canada and other countries; known for high-quality numismatic products</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Perth Mint (Australia)</td>
+      <td>Western Australia</td>
+      <td>Produces gold, silver, and platinum coins and bars; major player in the precious metals market</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>China Gold Coin Incorporation (CGCI)</td>
+      <td>China</td>
+      <td>Responsible for producing coins and medals in China; official minting authority in the country</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>South African Mint</td>
+      <td>Pretoria, South Africa</td>
+      <td>Produces coins for circulation, commemorative coins, and investment-grade precious metals</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Royal Dutch Mint (Koninklijke Nederlandse Munt)</td>
+      <td>Utrecht, Netherlands</td>
+      <td>Produces coins for the Netherlands and other countries</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Monnaie de Paris (Paris Mint)</td>
+      <td>Paris, France</td>
+      <td>Oldest continuously-running mint in the world; produces euro coins for France and collector's items</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Mexican Mint (Casa de Moneda de México)</td>
+      <td>Mexico City, Mexico</td>
+      <td>Produces coins for Mexico and other Latin American countries</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>New Zealand Mint</td>
+      <td>Auckland, New Zealand</td>
+      <td>Produces legal tender coins for New Zealand and various other Pacific island nations</td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  // Data for the chart
+  const mintLabels = ['US Mint', 'Royal Mint', 'Royal Canadian Mint', 'Perth Mint', 'China Gold Coin Inc', 'South African Mint', 'Royal Dutch Mint', 'Monnaie de Paris', 'Mexican Mint', 'New Zealand Mint'];
+  const mintRanks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  // Chart configuration
+  const ctx = document.getElementById('mintChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: mintLabels,
+      datasets: [{
+        label: 'Rank',
+        data: mintRanks,
+        backgroundColor: 'tan',
+        borderColor: 'black',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+</body>
+</html>

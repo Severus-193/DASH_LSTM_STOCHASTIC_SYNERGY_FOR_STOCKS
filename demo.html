@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Market Brokerage Services</title>
+    <style>
+      /* Add your CSS styles here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url(bg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      header {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px 20px;
+        margin-top: 30px;
+        text-align: center;
+        border-bottom: 2px solid #007bff;
+      }
+      .container {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Add a semi-transparent background for better readability */
+        padding: 20px;
+        border-radius: 10px;
+        margin: 50px auto; /* Center the container */
+        max-width: 800px; /* Limit the maximum width of the container */
+      }
+      .container {
+        background-color: transparent; /* Set background color to transparent */
+        padding: 20px;
+        border-radius: 10px;
+        margin: 50px auto; /* Center the container */
+        max-width: 800px; /* Limit the maximum width of the container */
+      }
+      .broker {
+        margin-bottom: 30px;
+        padding: 20px; /* Add padding to the brokers */
+        border-radius: 10px; /* Add border radius */
+        background-color: #f9f9f9; /* Add background color */
+        border: 1px solid transparent; /* Ensure consistent border width */
+        transition: border 0.3s ease; /* Smooth transition for border */
+      }
+      .broker h2 {
+        color: #007bff;
+        cursor: pointer; /* Add cursor pointer for clickable effect */
+      }
+      .broker p {
+        font-size: 16px;
+        display: none; /* Hide additional information by default */
+      }
+      .broker:hover {
+        border: 1px solid #007bff; /* Highlight border on hover */
+      }
+      .broker:hover p {
+        display: block; /* Show additional information on hover */
+      }
+      .broker:nth-child(odd) {
+        border-right: none; /* Remove right border for odd numbered brokers */
+      }
+      .broker:nth-child(even) {
+        border-left: none; /* Remove left border for even numbered brokers */
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        z-index: 1000;
+      }
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      nav ul li a:hover {
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Stock Market Broker Services</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="scrollToBroker('abc')">ABC Securities</a></li>
+        <li><a href="#" onclick="scrollToBroker('xyz')">XYZ Investments</a></li>
+        <li><a href="#" onclick="scrollToBroker('def')">DEF Capital</a></li>
+        <li><a href="#" onclick="scrollToBroker('ghi')">GHI Investments</a></li>
+        <li><a href="#" onclick="scrollToBroker('jkl')">JKL Financial</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <!-- Broker 1 -->
+      <div class="broker" id="abc">
+        <h2 onclick="toggleInfo('abc')">ABC Securities</h2>
+        <img src="abc_logo.jpeg" alt="ABC Securities Logo" width="100" />
+        <p id="abcInfo">
+          Description: ABC Securities is a trusted brokerage firm known for its
+          cutting-edge technology and personalized services. With a team of
+          experienced professionals, ABC Securities offers comprehensive
+          investment solutions tailored to individual client needs.
+        </p>
+        <p>Contact Information:</p>
+        <ul>
+          <li>Address: 456 Oak Street, Suite 200, City, State, Zip Code</li>
+          <li>Phone: (555) 456-7890</li>
+          <li>Email: info@abcsecurities.com</li>
+          <li>
+            Website:
+            <a href="http://www.abcsecurities.com">www.abcsecurities.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Broker 2 -->
+      <div class="broker" id="xyz">
+        <h2 onclick="toggleInfo('xyz')">XYZ Investments</h2>
+        <img src="XYZ_logo.png" alt="XYZ Investments Logo" width="100" />
+        <p id="xyzInfo">
+          Description: XYZ Investments is a boutique brokerage firm specializing
+          in providing personalized investment strategies. With a focus on
+          customer satisfaction, XYZ Investments offers a wide range of
+          financial services and solutions to meet the diverse needs of its
+          clients.
+        </p>
+        <p>Contact Information:</p>
+        <ul>
+          <li>Address: 789 Elm Avenue, Suite 300, City, State, Zip Code</li>
+          <li>Phone: (555) 789-1234</li>
+          <li>Email: info@xyzinvestments.com</li>
+          <li>
+            Website:
+            <a href="http://www.xyzinvestments.com">www.xyzinvestments.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Broker 3 -->
+      <div class="broker" id="def">
+        <h2 onclick="toggleInfo('def')">DEF Capital</h2>
+        <img src="def_logo.jpeg" alt="DEF Capital Logo" width="100" />
+        <p id="defInfo">
+          Description: DEF Capital is a full-service brokerage firm committed to
+          providing comprehensive financial solutions to investors of all
+          levels. With a team of seasoned professionals, DEF Capital offers
+          personalized investment advice and portfolio management services to
+          help clients achieve their financial goals.
+        </p>
+        <p>Contact Information:</p>
+        <ul>
+          <li>Address: 101 Pine Street, Suite 100, City, State, Zip Code</li>
+          <li>Phone: (555) 101-2020</li>
+          <li>Email: info@defcapital.com</li>
+          <li>
+            Website: <a href="http://www.defcapital.com">www.defcapital.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Broker 4 -->
+      <div class="broker" id="ghi">
+        <h2 onclick="toggleInfo('ghi')">GHI Investments</h2>
+        <img src="ghi_logo.png" alt="GHI Investments Logo" width="100" />
+        <p id="ghiInfo">
+          Description: GHI Investments is a globally recognized brokerage firm
+          renowned for its unparalleled market insights and innovative
+          investment solutions. With a focus on research and analysis, GHI
+          Investments provides clients with strategic investment recommendations
+          and personalized wealth management services.
+        </p>
+        <p>Contact Information:</p>
+        <ul>
+          <li>Address: 222 Maple Avenue, Suite 400, City, State, Zip Code</li>
+          <li>Phone: (555) 222-3333</li>
+          <li>Email: info@ghiinvestments.com</li>
+          <li>
+            Website:
+            <a href="http://www.ghiinvestments.com">www.ghiinvestments.com</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Broker 5 -->
+      <div class="broker" id="jkl">
+        <h2 onclick="toggleInfo('jkl')">JKL Financial</h2>
+        <img src="jkl_logo.jpeg" alt="JKL Financial Logo" width="100" />
+        <p id="jklInfo">
+          Description: JKL Financial is a leading brokerage firm specializing in
+          providing innovative investment solutions to institutional and
+          individual clients. With a focus on research-driven strategies, JKL
+          Financial offers a wide range of investment products and services to
+          help clients achieve their financial objectives.
+        </p>
+        <p>Contact Information:</p>
+        <ul>
+          <li>Address: 333 Cedar Street, Suite 500, City, State, Zip Code</li>
+          <li>Phone: (555) 333-4444</li>
+          <li>Email: info@jklfinancial.com</li>
+          <li>
+            Website:
+            <a href="http://www.jklfinancial.com">www.jklfinancial.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Add more brokers as needed -->
+    </div>
+
+    <script>
+      // JavaScript function to toggle additional information
+      function toggleInfo(broker) {
+        var info = document.getElementById(broker + "Info");
+        if (info.style.display === "none") {
+          info.style.display = "block";
+        } else {
+          info.style.display = "none";
+        }
+      }
+
+      // JavaScript function to scroll to broker section
+      function scrollToBroker(brokerId) {
+        var element = document.getElementById(brokerId);
+        window.scrollTo({
+          top: element.offsetTop - 50, // Adjust for fixed navigation
+          behavior: "smooth",
+        });
+      }
+    </script>
+  </body>
+</html>

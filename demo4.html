@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Advisory Services</title>
+    <style>
+      /* CSS styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("background1.jpg"); /* Path to your background image */
+        background-size: cover; /* Cover the entire viewport */
+        color: #333; /* Dark gray text */
+      }
+      .container {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* White background with some transparency */
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 800px; /* Adjust maximum width as needed */
+      }
+      header {
+        background-color: rgba(
+          0,
+          123,
+          255,
+          0.8
+        ); /* Blue header with some transparency */
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      nav {
+        background-color: rgba(
+          52,
+          58,
+          64,
+          0.8
+        ); /* Dark gray navigation with some transparency */
+        padding: 10px 0;
+        text-align: center;
+      }
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      nav ul li {
+        display: inline;
+        margin-right: 20px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      nav ul li a:hover {
+        color: #ffc107; /* Yellow hover color */
+      }
+      section {
+        padding: 20px;
+      }
+      footer {
+        background-color: rgba(
+          52,
+          58,
+          64,
+          0.8
+        ); /* Dark gray footer with some transparency */
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      .service {
+        border: 1px solid #007bff; /* Blue border for services */
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* White background with slight transparency */
+      }
+      .service h3 {
+        margin-top: 0;
+      }
+      .service p {
+        margin-bottom: 0;
+      }
+      .service a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .service a:hover {
+        text-decoration: underline;
+      }
+      .team-member {
+        border: 1px solid #28a745; /* Green border for team members */
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* White background with slight transparency */
+      }
+      .team-member h3 {
+        margin-top: 0;
+        margin-left: 20px;
+      }
+      .team-member p {
+        margin-bottom: 0;
+        margin-left: 20px;
+      }
+      .team-member img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+      }
+      .calculator {
+        border: 1px solid #ffc107; /* Yellow border for calculator */
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* White background with slight transparency */
+      }
+      .calculator h3 {
+        margin-top: 0;
+      }
+      .calculator p {
+        margin-bottom: 0;
+      }
+      .calculator input[type="number"] {
+        width: 100px;
+        padding: 5px;
+        margin-right: 10px;
+      }
+      .calculator button {
+        padding: 5px 10px;
+        background-color: #ffc107; /* Yellow button background */
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .calculator button:hover {
+        background-color: #ffcd38; /* Lighter yellow on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Financial Advisory Services</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <section id="services">
+        <h2>Our Services</h2>
+        <div class="service">
+          <h3>Investment Management</h3>
+          <p>
+            Our investment management services are tailored to your financial
+            goals and risk tolerance. We create personalized investment
+            portfolios and provide ongoing monitoring and adjustments as needed.
+          </p>
+          <p>
+            <a href="#">Learn more about our Investment Management services</a>
+          </p>
+        </div>
+        <div class="service">
+          <h3>Retirement Planning</h3>
+          <p>
+            Our retirement planning services help you prepare for a financially
+            secure retirement. We analyze your current financial situation,
+            develop a comprehensive retirement plan, and provide guidance on
+            saving, investing, and withdrawal strategies.
+          </p>
+          <p>
+            <a href="#">Learn more about our Retirement Planning services</a>
+          </p>
+        </div>
+        <div class="service">
+          <h3>Estate Planning</h3>
+          <p>
+            Our estate planning services help you protect and distribute your
+            assets according to your wishes. We assist in creating wills,
+            trusts, and other legal documents to minimize tax liabilities and
+            ensure your legacy is preserved.
+          </p>
+          <p><a href="#">Learn more about our Estate Planning services</a></p>
+        </div>
+        <div class="service">
+          <h3>Tax Planning</h3>
+          <p>
+            Our tax planning strategies help you minimize tax liabilities and
+            maximize savings and investments. We analyze your financial
+            situation and recommend tax-efficient investment strategies,
+            deductions, and credits.
+          </p>
+          <p><a href="#">Learn more about our Tax Planning services</a></p>
+        </div>
+        <div class="service">
+          <h3>Financial Planning</h3>
+          <p>
+            Our holistic financial planning services encompass all aspects of
+            your financial life. We help you set financial goals, create a
+            budget, manage debt, plan for major life events, and optimize your
+            overall financial well-being.
+          </p>
+          <p>
+            <a href="#">Learn more about our Financial Planning services</a>
+          </p>
+        </div>
+        <!-- Add more services as needed -->
+      </section>
+
+      <section id="team">
+        <h2>Our Team</h2>
+        <div class="team-member">
+          <img src="James-Doe.jpg" alt="John Doe" />
+          <div>
+            <h3>John Doe</h3>
+            <p>Certified Financial Planner</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img src="jane_smith.jpg" alt="Jane Smith" />
+          <div>
+            <h3>Jane Smith</h3>
+            <p>Chartered Financial Analyst</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img src="nigga.jpg" alt="Michael Johnson" />
+          <div>
+            <h3>Michael Johnson</h3>
+            <p>Certified Public Accountant</p>
+          </div>
+        </div>
+        <!-- Add more team members as needed -->
+      </section>
+
+      <section id="calculator">
+        <h2>Financial Calculator</h2>
+        <div class="calculator">
+          <h3>Calculate Loan Payment</h3>
+          <p>Enter Loan Amount: <input type="number" id="loanAmount" /></p>
+          <p>
+            Enter Annual Interest Rate(%):
+            <input type="number" id="interestRate" />
+          </p>
+          <p>Enter Loan Term (Years): <input type="number" id="loanTerm" /></p>
+          <button onclick="calculateLoanPayment()">Calculate</button>
+          <p id="paymentResult"></p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <p>
+          If you have any questions or would like to schedule a consultation,
+          please contact us:
+        </p>
+        <p>Email: info@financialadvisory.com</p>
+        <p>Phone: 1-800-123-4567</p>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Financial Advisory Services. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // JavaScript functions
+      function calculateLoanPayment() {
+        var loanAmount = parseFloat(
+          document.getElementById("loanAmount").value
+        );
+        var interestRate = parseFloat(
+          document.getElementById("interestRate").value
+        );
+        var loanTerm = parseFloat(document.getElementById("loanTerm").value);
+
+        var monthlyInterestRate = interestRate / 1200;
+        var numberOfPayments = loanTerm * 12;
+
+        var monthlyPayment =
+          (loanAmount * monthlyInterestRate) /
+          (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+
+        document.getElementById("paymentResult").innerText =
+          "Monthly Payment: $" + monthlyPayment.toFixed(2);
+      }
+    </script>
+  </body>
+</html>

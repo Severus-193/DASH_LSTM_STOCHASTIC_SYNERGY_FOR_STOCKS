@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrency Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFD700;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        #cryptoSymbol {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 1.2em;
+            background-color: #006400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #273aaa;
+        }
+
+        #result {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+ <script>
+        async function fetchCryptoInfo() {
+            const apiUrl = 'https://api.coincap.io/v2/assets';
+            const cryptoSymbol = document.getElementById('cryptoSymbol').value.toUpperCase();
+
+            if (!cryptoSymbol) {
+                alert('Please enter a cryptocurrency symbol.');
+                return;
+            }
+
+            const params = {
+                key: 'your_api_key', // Replace with your API key if needed
+                limit: 1,
+                search: cryptoSymbol,
+            };
+
+            const url = `${apiUrl}?${new URLSearchParams(params)}`;
+
+            try {
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (data.data.length > 0) {
+                    const crypto = data.data[0];
+
+                    document.getElementById('result').innerHTML = `
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Symbol</th>
+                                <th>Current Price (USD)</th>
+                                <th>Market Cap (USD)</th>
+                                <th>Volume (24h)</th>
+                            </tr>
+                            <tr>
+                                <td>${crypto.name}</td>
+                                <td>${crypto.symbol}</td>
+                                <td>$${parseFloat(crypto.priceUsd).toFixed(2)}</td>
+                                <td>$${parseFloat(crypto.marketCapUsd).toLocaleString()}</td>
+                                <td>${parseFloat(crypto.volumeUsd24Hr).toLocaleString()}</td>
+                            </tr>
+                        </table>
+                    `;
+                } else {
+                    document.getElementById('result').innerHTML = 'No data available for the entered cryptocurrency symbol.';
+                }
+            } catch (error) {
+                console.error('Error fetching cryptocurrency data:', error);
+                document.getElementById('result').innerHTML = 'Error fetching cryptocurrency data. Please try again later.';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>CRYPTOCURRENCY INFORMATION</h1>
+    <label for="cryptoSymbol">Enter Cryptocurrency Symbol:</label>
+    <input type="text" id="cryptoSymbol" placeholder="e.g., BTC">
+    <button onclick="fetchCryptoInfo()">Get Cryptocurrency Information</button>
+    <div id="result"></div>
+</body>
+</html>

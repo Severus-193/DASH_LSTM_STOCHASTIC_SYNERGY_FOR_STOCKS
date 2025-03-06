@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Stocks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color:coral;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 10px;
+            padding: 20px;
+        }
+
+        .photo {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .caption {
+            padding: 10px;
+            text-align: center;
+            background-color: #eee;
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Photography Stocks</h1>
+    </header>
+
+    <div class="gallery">
+        <!-- Replace the image URLs, titles, and descriptions with your actual content -->
+        <div class="photo">
+            <img src="sunset.jpeg" alt="Photo 1">
+            <div class="caption">
+                <h2>Sunset Serenity</h2>
+                <p>A breathtaking view of a vibrant sunset casting warm hues over majestic mountain peaks.</p>
+            </div>
+        </div>
+        <div class="photo">
+            <img src="flowers.jpeg" alt="Photo 2">
+            <div class="caption">
+                <h2>Blooming Beauty</h2>
+                <p> An up-close shot capturing the vivid colors and delicate details of a variety of blooming flowers in a lush garden.</p>
+            </div>
+        </div>
+        <div class="photo">
+            <img src="night.jpeg" alt="Photo 3">
+            <div class="caption">
+                <h2>Night Lights Symphony</h2>
+                <p>The city comes alive at night with a dazzling display of lights, creating a mesmerizing urban landscape.</p>
+            </div>
+        </div>
+        <div class="photo">
+            <img src="beach.jpeg" alt="Photo 4">
+            <div class="caption">
+                <h2>Tropical Paradise</h2>
+                <p>A serene beach scene with golden sands, swaying palm trees, and the calming sound of gentle waves.</p>
+            </div>
+        </div>
+        <div class="photo">
+            <img src="waterfall.jpeg" alt="Photo 5">
+            <div class="caption">
+                <h2>Enchanted Cascade</h2>
+                <p> A powerful waterfall surrounded by lush greenery, creating a magical and peaceful atmosphere in the heart of the forest.</p>
+            </div>
+        </div>
+        <div class="photo">
+            <img src="arch.jpeg" alt="Photo 6">
+            <div class="caption">
+                <h2>Timeless Elegance</h2>
+                <p> A close-up shot showcasing the intricate architectural details and timeless elegance of a historic building.</p>
+            </div>
+        </div>
+        <div class="photo">
+            <img src="reflection.jpeg" alt="Photo 7">
+            <div class="caption">
+                <h2>Mirror Lake Majesty</h2>
+                <p> The still waters of a lake perfectly mirror the grandeur of a distant mountain range, creating a stunning reflection.</p>
+            </div>
+        </div>
+        <div class="photo">
+            <img src="city.jpeg" alt="Photo 8">
+            <div class="caption">
+                <h2>Urban Kaleidoscope</h2>
+                <p>An abstract composition capturing the dynamic patterns and vibrant colors created by city lights at night.</p>
+            </div>
+        </div>
+        <div class="photo">
+            <img src="air.jpeg" alt="Photo 9">
+            <div class="caption">
+                <h2>Skybound Dreams</h2>
+                <p> An enchanting view from above as colorful hot air balloons float gracefully against a clear blue sky.</p>
+            </div>
+        </div>
+        <div class="photo">
+            <img src="cycle.jpeg" alt="Photo 10">
+            <div class="caption">
+                <h2>Nostalgic Ride</h2>
+                <p>A vintage bicycle leaning against a weathered brick wall, evoking a sense of nostalgia and timeless charm.</p>
+            </div>
+        </div>
+        <div class="photo">
+            <img src="tree.jpeg" alt="Photo 11">
+            <div class="caption">
+                <h2>Solitary Silhouette</h2>
+                <p>A lone tree stands as a striking silhouette against a canvas of vibrant colors during a breathtaking sunset, capturing the essence of solitude and beauty.</p>
+            </div>
+        </div>
+        <div class="photo">
+            <img src="waves.jpeg" alt="Photo 12">
+            <div class="caption">
+                <h2>Coastal Majesty</h2>
+                <p>An aerial perspective capturing the rugged beauty of a coastal cliff, where the relentless waves crash against the rocks, creating a dramatic and majestic seascape.</p>
+            </div>
+        </div>
+        <!-- Add more photo divs with titles and descriptions as needed -->
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDUCATIONAL ANALYSIS</title>
+
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(45deg, #ff7e5f, #feb47b, #ffcf9e); /* Gradient background */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      max-width: 600px; /* Set a smaller max-width for the body */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1, h2, p {
+      text-align: center;
+      color: #800080; /* Purple text */
+    }
+
+    .chart-container {
+      max-width: 100%; /* Allow the chart containers to take full width */
+      margin-top: 20px;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .chart-canvas {
+      width: 100%; /* Make the chart canvas fill its container */
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>EDUCATIONAL ANALYSIS</h1>
+
+  <!-- Display Educational Data -->
+  <div>
+    <p>EDUCATIONAL CONTENT ABOUT INVESTING IN STOCK MARKET.</p>
+    <h3><b>TYPES OF INVESTING:</b></h3>
+    <!-- ... (rest of the content) ... -->
+  </div>
+
+  <!-- Chart Container for the first bar chart -->
+  <div id="chartContainer" class="chart-container">
+    <canvas id="myChart" class="chart-canvas"></canvas>
+  </div>
+
+  <!-- Chart Container for the pie chart -->
+  <div id="pieChartContainer" class="chart-container">
+    <canvas id="myPieChart" class="chart-canvas"></canvas>
+  </div>
+
+  <script>
+    // Sample data for the first bar chart
+    var barChartData = {
+      labels: ['STOCKS', 'BONDS', 'IRA', 'COLLECTIBLES', 'CRYPTO'],
+      datasets: [{
+        label: 'MARKET CAP IN USD',
+        data: [75,85,65,90,80],
+        backgroundColor: 'rgba(54, 162, 235, 0.6)',  // Updated background color
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    // Chart configuration for the first bar chart
+    var barChartOptions = {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100
+        }
+      }
+    };
+
+    // Get the canvas element and create the first bar chart
+    var barChartCtx = document.getElementById('myChart').getContext('2d');
+    var barChart = new Chart(barChartCtx, {
+      type: 'bar',
+      data: barChartData,
+      options: barChartOptions
+    });
+
+    // Sample data for the pie chart (same as the bar chart)
+    var pieChartData = {
+      labels: ['STOCKS', 'BONDS', 'IRA', 'COLLECTIBLES', 'CRYPTO'],
+      datasets: [{
+        label: 'Average RATES IN USD',
+        data: [185,25, 65,70,180],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(255, 205, 86, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(75, 192, 192, 0.6)',
+          'rgba(153, 102, 255, 0.6)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 205, 86, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    // Get the canvas element and create the pie chart
+    var pieChartCtx = document.getElementById('myPieChart').getContext('2d');
+    var pieChart = new Chart(pieChartCtx, {
+      type: 'pie',
+      data: pieChartData
+    });
+  </script>
+
+</body>
+
+</html>

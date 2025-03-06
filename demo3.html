@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Analysis Platform</title>
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      /* CSS styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url(Background.jpg); /* Add your background image URL */
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: #fff; /* Change text color to white */
+      }
+      #container {
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.7
+        ); /* Semi-transparent black background */
+      }
+      #analysis-result {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgba(
+          255,
+          255,
+          0,
+          0.5
+        ); /* Semi-transparent yellow background */
+      }
+      canvas {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Financial Analysis Platform</h1>
+      <form id="analysis-form">
+        <label for="data-input"
+          >Enter close price of stocks:</label
+        ><br />
+        <textarea id="data-input" rows="5" cols="50"></textarea><br />
+        <button type="submit">Analyze</button>
+      </form>
+      <div id="analysis-result"></div>
+      <div id="chart-container" style="width: 80%; margin-top: 20px">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript code
+      document
+        .getElementById("analysis-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
+
+          var inputData = document.getElementById("data-input").value;
+          var dataArray = inputData.split(",").map(function (item) {
+            return parseFloat(item.trim()); // Convert input values to numbers
+          });
+
+          if (dataArray.some(isNaN)) {
+            document.getElementById("analysis-result").innerText =
+              "Invalid input. Please enter numeric values separated by commas.";
+          } else {
+            var sum = dataArray.reduce(function (total, num) {
+              return total + num; // Calculate sum of the data
+            }, 0);
+            var average = sum / dataArray.length; // Calculate average
+            var max = Math.max(...dataArray); // Calculate maximum value
+            var min = Math.min(...dataArray); // Calculate minimum value
+
+            var resultText = "Total: " + sum.toFixed(2) + "<br>";
+            resultText += "Average: " + average.toFixed(2) + "<br>";
+            resultText += "Maximum: " + max.toFixed(2) + "<br>";
+            resultText += "Minimum: " + min.toFixed(2);
+
+            document.getElementById("analysis-result").innerHTML = resultText;
+
+            // Generate chart
+            generateChart(dataArray, sum, average);
+          }
+        });
+
+      function generateChart(dataArray, sum, average) {
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var myChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: Array.from(Array(dataArray.length).keys()), // Generate labels from 0 to n-1
+            datasets: [
+              {
+                label: "Financial Data",
+                data: dataArray,
+                backgroundColor: "rgba(54, 162, 235, 0.5)", // Blue color with opacity
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
+              },
+              {
+                label: "Total",
+                data: Array(dataArray.length).fill(sum), // Fill the array with total value
+                backgroundColor: "rgba(255, 99, 132, 0.5)", // Red color with opacity
+                borderColor: "rgba(255, 99, 132, 1)",
+                borderWidth: 1,
+              },
+              {
+                label: "Average",
+                data: Array(dataArray.length).fill(average), // Fill the array with average value
+                backgroundColor: "rgba(75, 192, 192, 0.5)", // Green color with opacity
+                borderColor: "rgba(75, 192, 192, 1)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                  },
+                },
+              ],
+            },
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

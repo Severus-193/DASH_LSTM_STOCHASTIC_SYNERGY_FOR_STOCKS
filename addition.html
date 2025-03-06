@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Company Added Date</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+      background-color: #1a1a1a;
+      color: gold;
+    }
+
+    h1, h2 {
+      color: gold;
+    }
+
+    label {
+      color: gold;
+      margin-right: 10px;
+    }
+
+    input, button {
+      padding: 8px;
+      font-size: 16px;
+      border: none;
+      margin: 5px;
+    }
+
+    input {
+      background-color: #333;
+      color: gold;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: gold;
+      color: #1a1a1a;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    #result {
+      margin-top: 20px;
+    }
+
+    #additionDateInfo {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Stock Company Added Date</h1>
+
+  <label for="stockSymbol">Enter Stock Symbol:</label>
+  <input type="text" id="stockSymbol" placeholder="e.g., AAPL">
+  <button onclick="getStockAddedDate()">Get Added Date</button>
+
+  <div id="result">
+    <h2>Result:</h2>
+    <p id="additionDateInfo">Enter a stock symbol to get the added date.</p>
+  </div>
+
+  <script>
+   function getStockAddedDate() {
+      // Replace this object with your pre-recorded data
+      const stockData = {
+        AAPL: 'December 12, 1980',
+        GOOGL: 'August 19, 2004',
+        MSFT: 'March 13, 1986',
+        AMZN: 'May 15, 1997',
+        TSLA: 'June 29, 2010',
+        FB: 'May 18, 2012',
+        NVDA: 'January 22, 1999',
+        INTC: 'March 17, 1980',
+        AMD: 'September 16, 1980',
+        IBM: 'November 9, 1961',
+        ORCL: 'March 12, 1986',
+        HPQ: 'November 6, 1957',
+        CSCO: 'February 16, 1990',
+        CRM: 'June 23, 2004',
+        TXN: 'June 16, 1953',
+        QCOM: 'January 31, 1991',
+        NFLX: 'May 23, 2002',
+        PYPL: 'July 8, 2015',
+        SNAP: 'March 2, 2017',
+        ADBE: 'August 19, 1986',
+        BABA: 'September 19, 2014',
+        UBER: 'May 10, 2019',
+        ZM: 'April 18, 2019',
+        IBM: 'June 16, 1911',
+        MU: 'January 19, 1984',
+        GS: 'May 4, 1999',
+        BA: 'March 12, 1934',
+        JPM: 'May 30, 1896',
+        INTC: 'March 17, 1980',
+        DIS: 'May 12, 1927',
+        GE: 'November 7, 1907',
+        CAT: 'February 22, 1907',
+        XOM: 'November 13, 1928',
+        MCD: 'April 15, 1955',
+        V: 'March 19, 2008',
+        WMT: 'August 25, 1972',
+        GS: 'May 4, 1999',
+        BAC: 'July 1, 1970',
+        // Add more stock symbols and their addition dates as needed
+        IBM: 'June 16, 1911',
+        MU: 'January 19, 1984',
+        GS: 'May 4, 1999',
+        BA: 'March 12, 1934',
+        JPM: 'May 30, 1896',
+        INTC: 'March 17, 1980',
+        DIS: 'May 12, 1927',
+        GE: 'November 7, 1907',
+        CAT: 'February 22, 1907',
+        XOM: 'November 13, 1928',
+        MCD: 'April 15, 1955',
+        V: 'March 19, 2008',
+        WMT: 'August 25, 1972',
+        GS: 'May 4, 1999',
+        BAC: 'July 1, 1970',
+        // Add more stock symbols and their addition dates as needed
+        AMAT: 'December 14, 1984',
+        TSMC: 'February 21, 1994',
+        TCS: 'August 25, 2004',
+        Reliance: 'January 1, 1973',
+        Infosys: 'June 14, 1993',
+        HDFC: 'October 17, 1996',
+        HUL: 'June 6, 1933',
+        BhartiAirtel: 'August 8, 2001',
+        ITC: 'August 24, 1954',
+        ABBV: 'December 31, 2012',
+        NIO: 'September 12, 2018',
+        TWTR: 'November 7, 2013',
+        EBAY: 'September 21, 1998',
+        VZ: 'October 7, 1983',
+        
+
+        PEP: 'March 4, 1900',
+        F: 'January 17, 1956',
+        // Add more stock symbols and their addition dates as needed
+      };
+
+      const stockSymbolInput = document.getElementById('stockSymbol');
+      const resultElement = document.getElementById('additionDateInfo');
+
+      const symbol = stockSymbolInput.value.toUpperCase();
+      const additionDate = stockData[symbol];
+
+      if (additionDate) {
+        resultElement.textContent = `The company with stock symbol ${symbol} was added on ${additionDate}.`;
+      } else {
+        resultElement.textContent = `No information found for the stock symbol ${symbol}.`;
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music and Media Stocks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: wheat;
+        }
+
+        header {
+            background-color:darkcyan;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color:indigo;
+            color: white;
+        }
+
+        canvas {
+            margin: 20px auto;
+            display: block;
+            max-width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Music and Media Stocks</h1>
+    </header>
+
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Stock Symbol</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Spotify Technology S.A.</td>
+            <td>SPOT</td>
+            <td>Leading music streaming service.</td>
+        </tr>
+        <tr>
+            <td>Netflix, Inc.</td>
+            <td>NFLX</td>
+            <td>Popular streaming platform for TV shows and movies.</td>
+        </tr>
+        <tr>
+            <td>The Walt Disney Company</td>
+            <td>DIS</td>
+            <td>Diversified media and entertainment conglomerate.</td>
+        </tr>
+        <tr>
+            <td>Sony Group Corporation</td>
+            <td>SONY</td>
+            <td>Multinational conglomerate with businesses in electronics, gaming, film, music, and more.</td>
+        </tr>
+        <tr>
+            <td>Apple Inc.</td>
+            <td>AAPL</td>
+            <td>Technology giant known for consumer electronics, software, and services.</td>
+        </tr>
+        <tr>
+            <td>Amazon.com Inc.</td>
+            <td>AMZN</td>
+            <td>E-commerce and cloud computing company with a significant presence in various industries.</td>
+        </tr>
+        <tr>
+            <td>ViacomCBS Inc.</td>
+            <td>VIAC</td>
+            <td>Media company that owns various television networks, including CBS, MTV, Nickelodeon, and Paramount Pictures.</td>
+        </tr>
+        <tr>
+            <td>Tencent Music Entertainment Group</td>
+            <td>TME</td>
+            <td>Chinese music streaming platform that provides access to a vast library of songs and other audio content.</td>
+        </tr>
+        <tr>
+            <td>iHeartMedia, Inc.</td>
+            <td>IHRT</td>
+            <td>Media and entertainment company with a focus on radio broadcasting and digital streaming services.</td>
+        </tr>
+        <tr>
+            <td>Live Nation Entertainment, Inc.</td>
+            <td>LYV</td>
+            <td>Involved in live entertainment, including concert promotion, ticketing, and venue management.</td>
+        </tr>
+    </table>
+
+    <canvas id="stocksChart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Sample data for the chart
+        var companies = ["Spotify", "Netflix", "Disney", "Sony", "Apple", "Amazon", "ViacomCBS", "Tencent", "iHeartMedia", "Live Nation"];
+        var stockPrices = [3600, 1400, 1520, 1120, 1350, 3300, 2450, 4660, 3215, 4180]; // Replace with real stock prices
+
+        // Chart configuration
+        var ctx = document.getElementById('stocksChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: companies,
+                datasets: [{
+                    label: 'Stock Prices (USD)',
+                    data: stockPrices,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    pointRadius: 5,
+                    pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
